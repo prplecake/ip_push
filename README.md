@@ -4,9 +4,11 @@ changes. Useful in case you can't use dynamic DNS.
 
 [0]: https://pushover.net
 
-External IP address is found using wtfismyip.com, which requests that you 
+External IP address is found using [WTFismyIP][1], which requests that you 
 rate-limit yourself to one request per minute. Failure to do so may result in 
 being blocked.
+
+[1]: https://wtfismyip.com
 
 Settings go in the "settings.json" file. An example is included with the proper
 keys, all you have to do is copy "settings.json.example" to "settings.json" 
