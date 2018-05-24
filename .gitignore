@@ -1,5 +1,6 @@
 # ignore secret keys file
 settings.json
+
 # ignore data files that include private IP address
 ip.old
 

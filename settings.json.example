@@ -1,10 +1,7 @@
 {
     "keys": {
-        "consumer_key":"your_consumer_key_here",
-        "consumer_secret":"your_consumer_secret_here",
-        "access_token":"your_access_token_here",
-        "access_token_secret":"your_access_token_secret_here"
+        "user_key":     "",
+        "app_token":    ""
     },
-    "server_location":"server location identifier for DM, e.g. Home",
-    "target_user":"username_to_tweet_at"
+    "server_location":"Server location identifier, e.g.: Home"
 ]}

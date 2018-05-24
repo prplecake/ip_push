@@ -1,5 +1,4 @@
-oauthlib==1.1.2
-requests==2.10.0
-requests-oauthlib==0.6.2
-six==1.10.0
-tweepy==3.5.0
+pip==10.0.1
+py-pushover-simple==0.1.0
+setuptools==39.2.0
+wheel==0.31.1
