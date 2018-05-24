@@ -4,7 +4,7 @@ changes. Useful in case you can't use dynamic DNS.
 
 [0]: https://pushover.net
 
-External IP address is found using [WTFismyIP][1], which requests that you 
+External IP address is found using [WTF is my IP][1], which requests that you 
 rate-limit yourself to one request per minute. Failure to do so may result in 
 being blocked.
 
@@ -21,3 +21,16 @@ notification, in case you use this from multiple servers that exist behind
 different IP addresses.
 
 This was written and tested under Python 3.
+
+## Scheduling
+
+This program doesn't include scheduling on its own. I recommend you to set up a cron job to run as often as you'd like.
+
+## Contributors
+
+- Peter Jorgensen [Original Project] - (https://github.com/p2j/ip_tweet)
+- Matthew Jorgensen [Pushover Adaptation]
+
+## License
+
+This project is licensed under the terms of the MIT license.
