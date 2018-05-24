@@ -2,6 +2,8 @@
 Sends a notification via [Pushover][0] if the server's external IP address 
 changes. Useful in case you can't use dynamic DNS.
 
+[0]: https://pushover.net
+
 External IP address is found using wtfismyip.com, which requests that you 
 rate-limit yourself to one request per minute. Failure to do so may result in 
 being blocked.
