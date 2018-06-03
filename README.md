@@ -28,27 +28,27 @@ This was written and tested under Python 3.
 
 1. Clone the repository:
 
-```
-git clone https://gitlab.com/matthewjorgensen/ip_push.git
-```
+    ```
+    git clone https://gitlab.com/matthewjorgensen/ip_push.git
+    ```
 
 2. Change dirs into the repo:
 
-```
-cd ip_push
-```
+    ```
+    cd ip_push
+    ```
 
 3. Install requirements:
 
-```
-pip install -r requirements.txt
-```
+    ```
+    pip install -r requirements.txt
+    ```
 
 4. Copy `settings.json.example` to `settings.json`:
 
-```
-cp settings.json.example settings.json
-```
+    ```
+    cp settings.json.example settings.json
+    ```
 
 5. Set your secrets in `settings.json` with your favorite text editor.
 
@@ -58,9 +58,9 @@ This program doesn't include scheduling on its own. I recommend you to set up a 
 
 Example crontab entry:
 
-```
-*/5 * * * * cd /path/to/ip_push; ./ippush.py >/dev/null 2>&1
-```
+    ```
+    */5 * * * * cd /path/to/ip_push; ./ippush.py >/dev/null 2>&1
+    ```
 
 This will run ippush.py every 5 minutes.
 
