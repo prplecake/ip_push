@@ -1,3 +1,5 @@
+#!/usr/bin/env python3
+
 import os
 import json
 import time
@@ -68,4 +70,4 @@ if __name__ == '__main__':
     settings = readSettings('settings.json')
     SECRETS = settings['keys']
 
-    IPPush().do_update()    
+    IPPush().do_update()
