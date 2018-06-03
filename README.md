@@ -58,9 +58,9 @@ This program doesn't include scheduling on its own. I recommend you to set up a 
 
 Example crontab entry:
 
-    ```
-    */5 * * * * cd /path/to/ip_push; ./ippush.py >/dev/null 2>&1
-    ```
+```
+*/5 * * * * cd /path/to/ip_push; ./ippush.py >/dev/null 2>&1
+```
 
 This will run ippush.py every 5 minutes.
 
