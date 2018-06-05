@@ -12,6 +12,7 @@ from py_pushover_simple import pushover
 
 import conf.logger_config as lc
 
+
 def startLogger():
     if not os.path.isdir('log'):
         subprocess.call(['mkdir', 'log'])
@@ -22,6 +23,7 @@ def startLogger():
     logger.debug('Logger initialized.')
 
     return logger
+
 
 def readSettings(sf):
     with open(sf) as sf:
@@ -43,7 +45,6 @@ class IPPush():
             os.getcwd(), os.path.dirname(__file__)
         ))
 
-
     def get_current_ip(self):
         # note: https://wtfismyip.com doesn't care if you automate requests to
         # their service if it is for non-commercial use as long as you
@@ -53,15 +54,13 @@ class IPPush():
             self.ip = url.read().decode('utf-8').rstrip('\r\n')
         return self
 
-
     def get_old_ip(self):
         try:
             with open(os.path.join(self.__location__, 'ip.old')) as f:
                 self.old_ip = f.readline().rstrip('\r\n')
-        except:
+        except FileNotFoundError:
             self.old_ip = '0.0.0.0'
         return self
-
 
     def send_ip_push(self):
         sloc = settings['server_location']
@@ -72,14 +71,11 @@ class IPPush():
         sendMessage(message)
         logger.info('Push sent.')
 
-
     def write_new_ip(self):
         output = self.ip + '\n'
         with open(os.path.join(self.__location__, 'ip.old'), 'w') as f:
             f.write(output)
         logger.info('New IP Written.')
-
-
 
     def do_update(self):
         self.get_old_ip()
@@ -87,7 +83,7 @@ class IPPush():
         if self.ip != self.old_ip:
             try:
                 self.send_ip_push()
-            except:
+            except Exception:
                 logger.error('Unable to send push.')
             self.write_new_ip()
         else:
