@@ -22,9 +22,10 @@ different IP addresses.
 
 This was written and tested under Python 3.
 
-Installation instruction are below. Additional information
-[can be found in the project wiki][5].
+Installation instruction are below. Additional information, including
+[how to obtain a pushover app token][4], [can be found in the project wiki][5].
 
+[4]: https://code.jrgnsn.net/matthew/ip_push/wiki/Obtain-Pushover-App-Token
 [5]: https://code.jrgnsn.net/matthew/ip_push/wiki
 
 ## Installation
