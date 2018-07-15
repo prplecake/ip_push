@@ -22,6 +22,11 @@ different IP addresses.
 
 This was written and tested under Python 3.
 
+Installation instruction are below. Additional information
+[can be found in the project wiki][5].
+
+[5]: https://code.jrgnsn.net/matthew/ip_push/wiki
+
 ## Installation
 
 **Prerequisites:** pip, [pushover][0] account
