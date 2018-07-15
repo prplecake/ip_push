@@ -1,4 +1,4 @@
-# ip_tweet
+# ip_push
 Sends a notification via [Pushover][0] if the server's external IP address 
 changes. Useful in case you can't use dynamic DNS.
 
