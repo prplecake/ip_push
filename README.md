@@ -70,10 +70,6 @@ Example crontab entry:
 
 This will run ippush.py every 5 minutes.
 
-## TODO
-
-* Implement a logger
-
 ## Contributors
 
 - Peter Jorgensen [Original Project] - (https://github.com/p2j/ip_tweet)
