@@ -2,7 +2,7 @@
 settings.json
 
 # ignore data files that include private IP address
-ip.old
+*.old
 
 # MacOS indexing
 *.DS_Store
