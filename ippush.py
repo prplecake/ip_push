@@ -50,8 +50,24 @@ class IPPush():
         # their service if it is for non-commercial use as long as you
         # rate-limit to at most one request/min/ip address. Failure to comply
         # may result in blockage.
-        with urllib.request.urlopen('https://ipv4.wtfismyip.com/text') as url:
-            self.ip = url.read().decode('utf-8').rstrip('\r\n')
+        try:
+            with urllib.request.urlopen('https://ipv4.wtfismyip.com/text') as r:
+                if r.code == 200:
+                    ipv4 = True
+                    logger.info('IPv4 capabilities are True')
+                    self.ip = r.read().decode('utf-8').rstrip('\r\n')
+        except urllib.error.HTTPError as e:
+            logger.error(e)
+
+        try:
+            with urllib.request.urlopen('https://ipv6.wtfismyip.com/text') as r:
+                if r.code == 200:
+                    ipv6 = True
+                    logger.info('IPv6 capabilities are True')
+                    self.ipv6 = r.read().decode('utf-8').rstrip('\r\n')
+        except urllib.error.HTTPError as e:
+            logger.error(e)
+
         return self
 
     def get_old_ip(self):
@@ -60,14 +76,35 @@ class IPPush():
                 self.old_ip = f.readline().rstrip('\r\n')
         except FileNotFoundError:
             self.old_ip = '0.0.0.0'
+
+        try:
+            with open(os.path.join(self.__location__, 'ipv6.old')) as f:
+                self.old_ipv6 = f.readline().rstrip('\r\n')
+        except FileNotFoundError:
+            self.old_ipv6 = '::'
+
         return self
 
     def send_ip_push(self):
         sloc = settings['server_location']
         ip = self.ip
+        ipv6 = self.ipv6
         t = time.strftime('%c\n')
-        message = t + 'New external IP for {} is {}\n\n Old IP was: {}'.format(
-            sloc, ip, self.old_ip)
+        message ='''
+{}
+
+IPv4:
+New external IP for {} is
+    {}
+Old IP was:
+    {}
+
+IPv6:
+New external IPv6 address is:
+    {}
+Old IPv6 address was:
+    {}
+'''.format(t, sloc, ip, self.old_ip, ipv6, self.old_ipv6)
         sendMessage(message)
         logger.info('Push sent.')
 
@@ -77,10 +114,14 @@ class IPPush():
             f.write(output)
         logger.info('New IP Written.')
 
+        output2 = self.ipv6 + '\n'
+        with open(os.path.join(self.__location__, 'ipv6.old'), 'w') as f:
+            f.write(output2)
+
     def do_update(self):
         self.get_old_ip()
         self.get_current_ip()
-        if self.ip != self.old_ip:
+        if (self.ip != self.old_ip) or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_ip_push()
             except Exception:
