@@ -15,6 +15,7 @@ LOGGER_CONFIG = {
         'file': {
             'class':        'logging.handlers.RotatingFileHandler',
             'formatter':    'default',
+            'mode':         'a',
             'level':        'INFO',
             'filename':     'log/ippush.log',
             'maxBytes':     1024,
