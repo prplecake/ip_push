@@ -59,6 +59,7 @@ class IPPush():
         except urllib.error.HTTPError as e:
             logger.error(e)
 
+
         try:
             with urllib.request.urlopen('https://ipv6.wtfismyip.com/text') as r:
                 if r.code == 200:
@@ -67,7 +68,10 @@ class IPPush():
                     self.ipv6 = r.read().decode('utf-8').rstrip('\r\n')
         except urllib.error.HTTPError as e:
             logger.error(e)
-
+        except urllib.error.URLError as e:
+            logger.info('IPv6 capabilities are False')
+            logger.error(e)
+        logger.debug('IPv6 Status: {}'.format(bool(ipv6)))
         return self
 
     def get_old_ip(self):
