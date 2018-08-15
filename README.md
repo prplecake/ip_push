@@ -60,7 +60,8 @@ Installation instruction are below. Additional information, including
 
 ## Scheduling
 
-This program doesn't include scheduling on its own. I recommend you to set up a cron job to run as often as you'd like.
+This program doesn't include scheduling on its own. I recommend you to set up
+a cron job to run as often as you'd like.
 
 Example crontab entry:
 
