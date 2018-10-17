@@ -6,7 +6,7 @@
 Welcome to ip_push's documentation!
 ===================================
 
-`ip_push` sends a notification via `Pushover`_ if the server's external IP
+``ip_push`` sends a notification via `Pushover`_ if the server's external IP
 address changes. Useful in cases where you can't use Dynamic DNS.
 
 .. _Pushover: https://pushover.net
@@ -17,11 +17,17 @@ being blocked.
 
 .. _WTF is my IP?: https://wtfismyip.com
 
-Settings go in the `settings.json` file. An example is included with the proper
+Settings go in the ``settings.json`` file. An example is included with the proper
 keys, all you have to do is copy `settings.json.example` to `settings.json`, and
-update the relevant values. See more in :ref:`getting-started`.
+update the relevant values. See more in :doc:`getting-started`.
 
 This was written and tested under Python 3.
+
+Contributors
+============
+
+* Peter Jorgensen [Original Project] - https://github.com/p2j/ip_tweet
+* Matthew Jorgensen [This Puchover adaptation]
 
 .. toctree::
     :maxdepth: 2
