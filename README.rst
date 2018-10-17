@@ -15,7 +15,7 @@ External IP address is found using `WTF is my IP`_, which requests that you
 rate-limit yourself to one request per minute. Failure to do so may result in 
 being blocked.
 
-.. _WTF Is My IP:: https://wtfismyip.com
+.. _WTF Is My IP: https://wtfismyip.com
 
 Settings go in the "settings.json" file. An example is included with the proper
 keys, all you have to do is copy "settings.json.example" to "settings.json" 
