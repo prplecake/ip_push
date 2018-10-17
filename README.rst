@@ -1,6 +1,11 @@
 ip_push
 =======
 
+.. image:: https://readthedocs.org/projects/ip-push/badge/?version=latest
+    :target: https://ip-push.readthedocs.io/en/latest/?badge=latest
+    :alt: Documentation Status
+
+
 Sends a notification via `Pushover`_ if the server's external IP address 
 changes. Useful in case you can't use dynamic DNS.
 
