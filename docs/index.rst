@@ -32,8 +32,15 @@ Contributors
 .. toctree::
     :maxdepth: 2
     :hidden:
-    :caption: Contents:
+    :caption: Contents
 
     getting-started
     configuration
     pushover-token
+
+.. toctree::
+    :maxdepth: 2
+    :hidden:
+    :caption: Future
+
+    roadmap

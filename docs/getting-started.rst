@@ -1,6 +1,8 @@
 Getting Started
 ===============
 
+Ready to have some fun? 🙂
+
 Prerequisites
 -------------
 
