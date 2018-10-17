@@ -35,9 +35,9 @@ Installation
 
 **Prerequisites:** pip, `Pushover`_ account
 
-1. Clone the repository::
+1. Clone the repository:
 
-git clone https://gitlab.com/matthewjorgensen/ip_push.git
+    git clone https://gitlab.com/matthewjorgensen/ip_push.git
 
 2. Change dirs into the repo::
 
