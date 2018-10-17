@@ -30,10 +30,10 @@ different IP addresses.
 This was written and tested under Python 3.
 
 Installation instruction are below. Additional information, including
-`how to obtain a pushover app token`_, `can be found in the project wiki`_.
+`how to obtain a pushover app token`_, `can be found in the project docs`_.
 
-.. _how to obtain a pushover app token: https://dev.jrgnsn.net/matthew/ip_push/wikis/Obtain-Pushover-App-Token
-.. _can be found in the project wiki: https://dev.jrgnsn.net/matthew/ip_push/wikis/home
+.. _how to obtain a pushover app token: https://ip-push.readthedocs.io/en/latest/pushover-token.html
+.. _can be found in the project docs: https://ip-push.readthedocs.io/en/latest/
 
 Installation
 ------------
@@ -42,7 +42,7 @@ Installation
 
 1. Clone the repository::
 
-    git clone https://gitlab.com/matthewjorgensen/ip_push.git
+    git clone https://github.com/mtthwjrgnsn/ip_push.git
 
 2. Change dirs into the repo::
 
