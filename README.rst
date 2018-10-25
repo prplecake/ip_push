@@ -1,6 +1,11 @@
 ip_push
 =======
 
+.. image:: https://img.shields.io/github/issues/mtthwjrgnsn/ip_push.svg
+    :alt: GitHub issues
+    :target: https://github.com/mtthwjrgnsn/ip_push/issues
+
+
 .. image:: https://readthedocs.org/projects/ip-push/badge/?version=latest
     :target: https://ip-push.readthedocs.io/en/latest/?badge=latest
     :alt: Documentation Status
@@ -52,11 +57,9 @@ Installation
 
     pip install -r requirements.txt
 
-4. Copy `settings.json.example` to `settings.json`::
+4. Use ``setup.py`` to configure your secrets::
 
-    cp settings.json.example settings.json
-
-5. Set your secrets in `settings.json` with your favorite text editor.
+   ./setup.py
 
 Scheduling
 ----------
