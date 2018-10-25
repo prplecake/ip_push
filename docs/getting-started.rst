@@ -27,11 +27,9 @@ Installation
 
     pip install -r requirements.txt
 
-4. Copy ``settings.json.example`` to ``settings.json``::
-    
-    cp setings.json.example settings.json
+4. Use ``setup.py`` to configure your secrets::
 
-5. Set your secrets in ``settings.json`` with your favorite text editor.
+    ./setup.py
 
 Scheduling
 ----------
