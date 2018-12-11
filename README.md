@@ -1,14 +1,7 @@
 ip_push
 =======
 
-.. image:: https://img.shields.io/github/issues/mtthwjrgnsn/ip_push.svg
-    :alt: GitHub issues
-    :target: https://github.com/mtthwjrgnsn/ip_push/issues
-
-
-.. image:: https://readthedocs.org/projects/ip-push/badge/?version=latest
-    :target: https://ip-push.readthedocs.io/en/latest/?badge=latest
-    :alt: Documentation Status
+[![Documentation Status](https://readthedocs.org/projects/ip-push/badge/?version=latest)](https://ip-push.readthedocs.io/en/latest/?badge=latest)
 
 
 Sends a notification via [Pushover][0] if the server's external IP address 
@@ -20,7 +13,7 @@ External IP address is found using [WTF is my IP][1], which requests that you
 rate-limit yourself to one request per minute. Failure to do so may result in 
 being blocked.
 
-[1] https://wtfismyip.com
+[1]: https://wtfismyip.com
 
 Settings go in the `settings.json` file. An example is included with the proper
 keys, all you have to do is copy `settings.json.example` to `settings.json` 
