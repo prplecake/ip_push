@@ -1,7 +1,9 @@
 ip_push
 =======
 
-[![Documentation Status](https://readthedocs.org/projects/ip-push/badge/?version=latest)](https://ip-push.readthedocs.io/en/latest/?badge=latest)
+[![Documentation Status](https://readthedocs.org/projects/ip-push/badge/?version=latest)][docStatus]
+
+[docStatus]: https://ip-push.readthedocs.io/en/latest/?badge=latest)
 
 
 Sends a notification via [Pushover][0] if the server's external IP address 
@@ -38,19 +40,19 @@ Installation
 
 **Prerequisites:** pip, [Pushover][0] account
 
-1. Clone the repository:
+Clone the repository:
 
     git clone https://github.com/mtthwjrgnsn/ip_push.git
 
-2. Change dirs into the repo:
+Change dirs into the repo:
 
     cd ip_push
 
-3. Install requirements:
+Install requirements:
 
     pip install -r requirements.txt
 
-4. Use `setup.py` to configure your secrets:
+Use `setup.py` to configure your secrets:
 
    ./setup.py
 
