@@ -40,21 +40,21 @@ Installation
 
 **Prerequisites:** pip, [Pushover][0] account
 
-Clone the repository:
+1. Clone the repository:
 
-    git clone https://github.com/mtthwjrgnsn/ip_push.git
+        git clone https://github.com/mtthwjrgnsn/ip_push.git
 
-Change dirs into the repo:
+2. Change dirs into the repo:
 
-    cd ip_push
+        cd ip_push
 
-Install requirements:
+3. Install requirements:
 
-    pip install -r requirements.txt
+        pip install -r requirements.txt
 
-Use `setup.py` to configure your secrets:
+4. Use `setup.py` to configure your secrets:
 
-   ./setup.py
+       ./setup.py
 
 Scheduling
 ----------
