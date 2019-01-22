@@ -49,7 +49,7 @@ Installation
 
 4. Use `setup.py` to configure your secrets:
 
-       ./setup.py
+        python3 setup.py
 
 Scheduling
 ----------
