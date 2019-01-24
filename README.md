@@ -1,5 +1,7 @@
-ip_push
-=======
+# ip_push
+
+* [Documentation](https://man.sr.ht/%7Emjorgensen/ip_push/)
+* [Issue Tracker](https://todo.sr.ht/%7Emjorgensen/ip_push/)
 
 Sends a notification via [Pushover][0] if the server's external IP address
 changes. Useful in case you can't use dynamic DNS.
@@ -30,8 +32,7 @@ obtain a pushover app token][2], [can be found in the project docs][3].
 [2]: https://ip-push.readthedocs.io/en/latest/pushover-token.html
 [3]: https://ip-push.readthedocs.io/en/latest/
 
-Installation
-------------
+## Installation
 
 **Prerequisites:** pip, [Pushover][0] account
 
@@ -51,8 +52,7 @@ Installation
 
         python3 setup.py
 
-Scheduling
-----------
+## Scheduling
 
 This program doesn't include scheduling on its own. I recommend you to set up a
 cron job to run as often as you'd like.
@@ -63,13 +63,11 @@ Example crontab entry:
 
 This will run ippush.py every 5 minutes.
 
-Contributors
-------------
+## Contributors
 
 - Peter Jorgensen [[Original Project](https://github.com/p2j/ip_tweet)]
 - Matthew Jorgensen [Pushover adaptation]
 
-License
--------
+## License
 
 This project is licensed under the terms of the MIT license.
