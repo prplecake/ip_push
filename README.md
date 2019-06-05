@@ -1,8 +1,5 @@
 # ip_push
 
-* [Documentation](https://man.sr.ht/%7Emjorgensen/ip_push/)
-* [Issue Tracker](https://todo.sr.ht/%7Emjorgensen/ip_push/)
-
 Sends a notification via [Pushover][0] if the server's external IP address
 changes. Useful in case you can't use dynamic DNS.
 
@@ -26,11 +23,8 @@ different IP addresses.
 
 This was written and tested under Python 3.
 
-Installation instruction are below. Additional information, including [how to
-obtain a pushover app token][2], [can be found in the project docs][3].
-
-[2]: https://ip-push.readthedocs.io/en/latest/pushover-token.html
-[3]: https://ip-push.readthedocs.io/en/latest/
+Installation instruction are below. Additional information, including how to
+obtain a pushover app token, can be found in the project wiki.
 
 ## Installation
 
