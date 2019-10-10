@@ -15,9 +15,9 @@ Settings go in the `settings.json` file. An example is included with the proper
 keys, all you have to do is copy `settings.json.example` to `settings.json`
 update for your specific needs.
 
-The user_key, app_token, key-values come from your Pushover account.
+The user\_key, app\_token, key-values come from your Pushover account.
 
-The server_location key-value is used to distinguish which server sent the
+The server\_location key-value is used to distinguish which server sent the
 notification, in case you use this from multiple servers that exist behind
 different IP addresses.
 
