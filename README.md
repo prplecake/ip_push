@@ -76,5 +76,5 @@ This project is licensed under the terms of the MIT license.
 [todo]: https://todo.sr.ht/~mjorgensen/ip_push
 [list]: https://lists.sr.ht/~mjorgensen/public-inbox
 
-**Finally,** This project was inspired by my brother's project,
+**Finally,** this project was inspired by my brother's project,
 [ip_tweet](https://github.com/p2j/ip_tweet).
