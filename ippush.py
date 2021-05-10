@@ -13,7 +13,7 @@ from py_pushover_simple import pushover
 import conf.logger_config as lc
 
 
-def startLogger():
+def start_logger():
     if not os.path.isdir('log'):
         subprocess.call(['mkdir', 'log'])
 
@@ -25,13 +25,13 @@ def startLogger():
     return logger
 
 
-def readSettings(sf):
+def read_settings(sf):
     with open(sf) as sf:
         SECRETS = json.load(sf)
     return SECRETS
 
 
-def sendMessage(message):
+def send_message(message):
     p = pushover.Pushover()
     p.user = SECRETS['user_key']
     p.token = SECRETS['app_token']
@@ -107,7 +107,7 @@ New external IPv6 address is:
 Old IPv6 address was:
     {}
 '''.format(t, sloc, ip, self.old_ip, ipv6, self.old_ipv6)
-        sendMessage(message)
+        send_message(message)
         logger.info('Push sent.')
 
     def write_new_ip(self):
@@ -134,8 +134,8 @@ Old IPv6 address was:
 
 
 if __name__ == '__main__':
-    settings = readSettings('settings.json')
+    settings = read_settings('settings.json')
     SECRETS = settings['keys']
-    logger = startLogger()
+    logger = start_logger()
 
     IPPush().do_update()
