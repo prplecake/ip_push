@@ -53,7 +53,6 @@ class IPPush():
         try:
             with urllib.request.urlopen('https://ipv4.wtfismyip.com/text') as r:
                 if r.code == 200:
-                    # ipv4 = True
                     logger.info('IPv4 capabilities are True')
                     self.ip = r.read().decode('utf-8').rstrip('\r\n')
         except urllib.error.HTTPError as e:
