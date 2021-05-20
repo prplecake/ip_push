@@ -1,3 +1,10 @@
+[![CodeQL](https://github.com/prplecake/ip_push/actions/workflows/codeql-analysis.yml/badge.svg)](https://github.com/prplecake/ip_push/actions/workflows/codeql-analysis.yml)
+[![Quality Gate Status](https://sonarcloud.io/api/project_badges/measure?project=prplecake_ip_push&metric=alert_status)](https://sonarcloud.io/dashboard?id=prplecake_ip_push)
+[![Bugs](https://sonarcloud.io/api/project_badges/measure?project=prplecake_ip_push&metric=bugs)](https://sonarcloud.io/dashboard?id=prplecake_ip_push)
+[![Vulnerabilities](https://sonarcloud.io/api/project_badges/measure?project=prplecake_ip_push&metric=vulnerabilities)](https://sonarcloud.io/dashboard?id=prplecake_ip_push)
+[![Code Smells](https://sonarcloud.io/api/project_badges/measure?project=prplecake_ip_push&metric=code_smells)](https://sonarcloud.io/dashboard?id=prplecake_ip_push)
+[![Duplicated Lines (%)](https://sonarcloud.io/api/project_badges/measure?project=prplecake_ip_push&metric=duplicated_lines_density)](https://sonarcloud.io/dashboard?id=prplecake_ip_push)
+
 # ip_push
 
 Sends a notification via [Pushover][0] if the server's external IP address
