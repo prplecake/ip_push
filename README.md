@@ -67,21 +67,8 @@ Example crontab entry:
 
 This will run ippush.py every 5 minutes.
 
-## Resources
-
-Documentation is [available here][man].
-
-Discussion and patches welcome at my public inbox:
-[~mjorgensen/public-inbox@lists.sr.ht][list]. Please use `--send-prefix
-PATCH ip_push` for clarity when sending patches.
-
-Bugs, issues, and tasks are at the tracker: [~mjorgensen/ip_push][todo]
+## License
 
 This project is licensed under the terms of the MIT license.
 
-[man]: https://man.sr.ht/~mjorgensen/ip_push
-[todo]: https://todo.sr.ht/~mjorgensen/ip_push
-[list]: https://lists.sr.ht/~mjorgensen/public-inbox
-
-**Finally,** this project was inspired by my brother's project,
-[ip_tweet](https://github.com/p2j/ip_tweet).
+Inspired by [ip_tweet](https://github.com/p2j/ip_tweet).
