@@ -44,6 +44,8 @@ class IPPush():
         self.__location__ = os.path.realpath(os.path.join(
             os.getcwd(), os.path.dirname(__file__)
         ))
+        self.ipv4 = None
+        self.ipv6 = None
 
     def get_current_ip(self):
         # note: https://wtfismyip.com doesn't care if you automate requests to
@@ -58,6 +60,7 @@ class IPPush():
         except urllib.error.HTTPError as e:
             logger.error(e)
 
+        ipv6 = False
         try:
             with urllib.request.urlopen('https://ipv6.wtfismyip.com/text') as r:
                 if r.code == 200:
@@ -92,8 +95,7 @@ class IPPush():
         ip = self.ip
         ipv6 = self.ipv6
         t = time.strftime('%c\n')
-        message = '''
-{}
+        message = '''{}
 
 IPv4:
 New external IP for {} is
@@ -116,18 +118,18 @@ Old IPv6 address was:
             f.write(output)
         logger.info('New IP Written.')
 
-        output2 = self.ipv6 + '\n'
+        output2 = '{}\n'.format(self.ipv6)
         with open(os.path.join(self.__location__, 'ipv6.old'), 'w') as f:
             f.write(output2)
 
     def do_update(self):
         self.get_old_ip()
         self.get_current_ip()
-        if (self.ip != self.old_ip) or (self.ipv6 != self.old_ipv6):
+        if (self.ip != self.old_ip): #or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_ip_push()
-            except Exception:
-                logger.error('Unable to send push.')
+            except Exception as e:
+                logger.error('Unable to send push. Exception:\n\n{}\n'.format(e))
             self.write_new_ip()
         else:
             logger.info('IP did not change.')
