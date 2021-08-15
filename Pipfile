@@ -10,4 +10,4 @@ py-pushover-simple = "==0.1.3"
 coverage = "*"
 
 [requires]
-python_version = "3.9"
+python_version = "3.8"
