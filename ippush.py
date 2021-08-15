@@ -13,16 +13,13 @@ from py_pushover_simple import pushover
 import conf.logger_config as lc
 
 
-def start_logger():
-    if not os.path.isdir('log'):
-        subprocess.call(['mkdir', 'log'])
+if not os.path.isdir('log'):
+    subprocess.call(['mkdir', 'log'])
 
-    logging.config.dictConfig(lc.LOGGER_CONFIG)
+logging.config.dictConfig(lc.LOGGER_CONFIG)
 
-    logger = logging.getLogger(__name__)
-    logger.debug('Logger initialized.')
-
-    return logger
+logger = logging.getLogger(__name__)
+logger.debug('Logger initialized.')
 
 
 def read_settings(sf):
@@ -31,21 +28,14 @@ def read_settings(sf):
     return SECRETS
 
 
-def send_message(message):
-    p = pushover.Pushover()
-    p.user = SECRETS['user_key']
-    p.token = SECRETS['app_token']
-
-    p.sendMessage(message)
-
-
 class IPPush():
-    def __init__(self):
+    def __init__(self, settings):
         self.__location__ = os.path.realpath(os.path.join(
             os.getcwd(), os.path.dirname(__file__)
         ))
         self.ipv4 = None
         self.ipv6 = None
+        self.settings = settings
 
     def get_current_ip(self):
         # note: https://wtfismyip.com doesn't care if you automate requests to
@@ -69,9 +59,8 @@ class IPPush():
                     self.ipv6 = r.read().decode('utf-8').rstrip('\r\n')
         except urllib.error.HTTPError as e:
             logger.error(e)
-        except urllib.error.URLError as e:
+        except urllib.error.URLError:
             logger.info('IPv6 capabilities are False')
-            logger.error(e)
         logger.debug('IPv6 Status: {}'.format(bool(ipv6)))
         return self
 
@@ -91,7 +80,7 @@ class IPPush():
         return self
 
     def send_ip_push(self):
-        sloc = settings['server_location']
+        sloc = self.settings['server_location']
         ip = self.ip
         ipv6 = self.ipv6
         t = time.strftime('%c\n')
@@ -109,7 +98,7 @@ New external IPv6 address is:
 Old IPv6 address was:
     {}
 '''.format(t, sloc, ip, self.old_ip, ipv6, self.old_ipv6)
-        send_message(message)
+        self.send_message(message)
         logger.info('Push sent.')
 
     def write_new_ip(self):
@@ -125,19 +114,27 @@ Old IPv6 address was:
     def do_update(self):
         self.get_old_ip()
         self.get_current_ip()
-        if (self.ip != self.old_ip): #or (self.ipv6 != self.old_ipv6):
+        if (self.ip != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_ip_push()
             except Exception as e:
-                logger.error('Unable to send push. Exception:\n\n{}\n'.format(e))
+                logger.error(
+                    'Unable to send push. Exception:\n\n{}\n'.format(e)
+                )
             self.write_new_ip()
         else:
             logger.info('IP did not change.')
+
+    def send_message(self, message):
+        p = pushover.Pushover()
+        p.user = self.settings['keys']['user_key']
+        p.token = self.settings['keys']['app_token']
+    
+        p.sendMessage(message)
 
 
 if __name__ == '__main__':
     settings = read_settings('settings.json')
     SECRETS = settings['keys']
-    logger = start_logger()
 
-    IPPush().do_update()
+    IPPush(settings).do_update()
