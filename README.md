@@ -30,12 +30,12 @@ how to obtain a pushover app token, can be found in the project wiki.
 
 **Prerequisites:** 
 
-* pip
+* [pipenv](https://pipenv.pypa.io/en/latest/)
 * [Pushover][0] account
 
 1. Clone the repository:
 
-        git clone https://github.com/mtthwjrgnsn/ip_push.git
+        git clone https://git.sr.ht/~mjorgensen/ip_push
 
 2. Change dirs into the repo:
 
@@ -43,11 +43,11 @@ how to obtain a pushover app token, can be found in the project wiki.
 
 3. Install requirements:
 
-        pip install -r requirements.txt
+        pipenv install
 
 4. Use `setup.py` to configure your secrets:
 
-        python3 setup.py
+        pipenv run python setup.py
 
 ## Scheduling
 
@@ -56,7 +56,9 @@ set up a cron job to run as often as you'd like.
 
 Example crontab entry:
 
-    */5 * * * * cd /path/to/ip_push; ./ippush.py >/dev/null 2>&1
+```
+*/5 * * * * cd /path/to/ip_push; pipenv run python ./ippush.py >/dev/null 2>&1
+```
 
 This will run ippush.py every 5 minutes.
 
