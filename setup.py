@@ -20,11 +20,11 @@ def create_config(settings_file='settings.json'):
 
 def backup_config(settings_file):
     now = datetime.datetime.now().strftime('%d-%b-%y')
-    new_filename = 'settings.json-' + now + '.bak'
-    os.rename(settings_file, new_filename)
+    new_filename = settings_file + '-' + now + '.bak'
+    os.renames(settings_file, new_filename)
 
 
-def main():
+def main(settings_file='settings.json'):
     print("""
 Welcome to the `ip_push` setup script! Very simply, this script creates a
 configuration file for the `ippush.py` to use.
@@ -32,8 +32,6 @@ configuration file for the `ippush.py` to use.
 Find documentation at https://ip-push.rtfd.io
 Find the source code at https://github.com/mtthwjrgnsn/ip_push
 """)
-
-    settings_file = 'settings.json'
 
     if os.path.exists(settings_file):
         if input("""
