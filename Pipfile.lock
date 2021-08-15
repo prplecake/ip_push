@@ -18,11 +18,11 @@
     "default": {
         "py-pushover-simple": {
             "hashes": [
-                "sha256:2ed4b9d6680f2c4dd7a4b5e49c5e2cb04ac80c543bb9a8ef061b75627caebc23",
-                "sha256:e2713f2b41d0f680844c8ed2ad7c90f4fc3eb3ac962f412ceaab892db9eabdeb"
+                "sha256:014592246563516c9b940b063b4c258e3b83a11dd9df531e08c689c142335236",
+                "sha256:8ae175ed05d8b01c318e5cc2f581a7a0ccca48e7bd9e84b08c64c8a47de31ff4"
             ],
             "index": "pypi",
-            "version": "==0.3.0"
+            "version": "==0.3.1"
         }
     },
     "develop": {
