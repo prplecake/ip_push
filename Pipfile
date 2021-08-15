@@ -4,7 +4,7 @@ verify_ssl = true
 name = "pypi"
 
 [packages]
-py-pushover-simple = "==0.1.3"
+py-pushover-simple = "*"
 
 [dev-packages]
 coverage = "*"
