@@ -130,7 +130,7 @@ Old IPv6 address was:
         p.user = self.settings['keys']['user_key']
         p.token = self.settings['keys']['app_token']
     
-        p.sendMessage(message)
+        p.send_message(message)
 
 
 if __name__ == '__main__':
