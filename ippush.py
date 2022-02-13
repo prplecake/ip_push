@@ -24,8 +24,8 @@ logger.debug('Logger initialized.')
 
 def read_settings(sf):
     with open(sf) as sf:
-        SECRETS = json.load(sf)
-    return SECRETS
+        s = json.load(sf)
+    return s
 
 
 class IPPush():
@@ -36,6 +36,8 @@ class IPPush():
         self.ipv4 = None
         self.ipv6 = None
         self.settings = settings
+        self.wtfismy_ipv4 = 'https://ipv4.wtfismyip.com/text'
+        self.wtfismy_ipv6 = 'https://ipv6.wtfismyip.com/text'
 
     def get_current_ip(self):
         # note: https://wtfismyip.com doesn't care if you automate requests to
@@ -43,16 +45,16 @@ class IPPush():
         # rate-limit to at most one request/min/ip address. Failure to comply
         # may result in blockage.
         try:
-            with urllib.request.urlopen('https://ipv4.wtfismyip.com/text') as r:
+            with urllib.request.urlopen(self.wtfismy_ipv4) as r:
                 if r.code == 200:
                     logger.info('IPv4 capabilities are True')
-                    self.ip = r.read().decode('utf-8').rstrip('\r\n')
+                    self.ipv4 = r.read().decode('utf-8').rstrip('\r\n')
         except urllib.error.HTTPError as e:
             logger.error(e)
 
         ipv6 = False
         try:
-            with urllib.request.urlopen('https://ipv6.wtfismyip.com/text') as r:
+            with urllib.request.urlopen(self.wtfismy_ipv6) as r:
                 if r.code == 200:
                     ipv6 = True
                     logger.info('IPv6 capabilities are True')
@@ -61,7 +63,7 @@ class IPPush():
             logger.error(e)
         except urllib.error.URLError:
             logger.info('IPv6 capabilities are False')
-        logger.debug('IPv6 Status: {}'.format(bool(ipv6)))
+        logger.debug(f'IPv6 Status: {bool(ipv6)}')
         return self
 
     def get_old_ip(self):
@@ -81,7 +83,7 @@ class IPPush():
 
     def send_ip_push(self):
         sloc = self.settings['server_location']
-        ip = self.ip
+        ip = self.ipv4
         ipv6 = self.ipv6
         t = time.strftime('%c\n')
         message = '''{}
@@ -102,7 +104,7 @@ Old IPv6 address was:
         logger.info('Push sent.')
 
     def write_new_ip(self):
-        output = self.ip + '\n'
+        output = self.ipv4 + '\n'
         with open(os.path.join(self.__location__, 'ip.old'), 'w') as f:
             f.write(output)
         logger.info('New IP Written.')
@@ -114,7 +116,7 @@ Old IPv6 address was:
     def do_update(self):
         self.get_old_ip()
         self.get_current_ip()
-        if (self.ip != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
+        if (self.ipv4 != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_ip_push()
             except Exception as e:
@@ -129,12 +131,11 @@ Old IPv6 address was:
         p = pushover.Pushover()
         p.user = self.settings['keys']['user_key']
         p.token = self.settings['keys']['app_token']
-    
         p.send_message(message)
 
 
 if __name__ == '__main__':
-    settings = read_settings('settings.json')
-    SECRETS = settings['keys']
+    config = read_settings('settings.json')
+    SECRETS = config['keys']
 
-    IPPush(settings).do_update()
+    IPPush(config).do_update()
