@@ -2,7 +2,7 @@
 log/
 
 # ignore secret keys file
-settings.*
+settings.json
 test_settings.*
 
 # ignore data files that include private IP address
