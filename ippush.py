@@ -5,7 +5,6 @@ import json
 import time
 import logging.config
 import logging
-import subprocess
 import urllib.request
 
 from py_pushover_simple import pushover
@@ -14,7 +13,7 @@ import conf.logger_config as lc
 
 
 if not os.path.isdir('log'):
-    subprocess.call(['mkdir', 'log'])
+    os.mkdir('log')
 
 logging.config.dictConfig(lc.LOGGER_CONFIG)
 
