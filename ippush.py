@@ -114,7 +114,7 @@ Old IPv6 address was:
         with open(os.path.join(self.__location__, 'ipv6.old'), 'w') as f:
             f.write(output2)
 
-    def do_update(self):
+    def update(self):
         self.get_old_ip()
         self.get_current_ip()
         if (self.ipv4 != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
@@ -139,4 +139,4 @@ if __name__ == '__main__':
     config = read_settings('settings.json')
     SECRETS = config['keys']
 
-    IPPush(config).do_update()
+    IPPush(config).update()

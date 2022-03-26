@@ -50,11 +50,11 @@ class IPPushTestCase(TestCase):
         ippush = self.ippush
         ippush.send_ip_push()
 
-    def test_do_update(self):
+    def test_update(self):
         ippush = self.ippush
-        ippush.do_update()
+        ippush.update()
 
-    def test_do_update_no_old_ip(self):
+    def test_update_no_old_ip(self):
         os.remove('ip.old')
         ippush = self.ippush
-        ippush.do_update()
+        ippush.update()
