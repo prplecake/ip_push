@@ -64,7 +64,7 @@ class IPPush():
             logger.error(e)
         except urllib.error.URLError:
             logger.info('IPv6 capabilities are False')
-        logger.debug(f'IPv6 Status: {bool(ipv6)}')
+        logger.debug('IPv6 Status: %s', bool(ipv6))
         return self
 
     def get_old_ip(self):
@@ -122,7 +122,7 @@ Old IPv6 address was:
                 self.send_ip_push()
             except Exception as e:
                 logger.error(
-                    'Unable to send push. Exception:\n\n{}\n'.format(e)
+                    'Unable to send push. Exception:\n\n%s\n', e
                 )
             self.write_new_ip()
         else:
