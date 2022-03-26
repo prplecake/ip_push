@@ -46,9 +46,9 @@ class IPPushTestCase(TestCase):
         ippush.get_old_ip()
         ippush.write_new_ip()
 
-    def test_send_ip_push(self):
+    def test_send_push(self):
         ippush = self.ippush
-        ippush.send_ip_push()
+        ippush.send_push()
 
     def test_update(self):
         ippush = self.ippush

@@ -82,7 +82,7 @@ class IPPush():
 
         return self
 
-    def send_ip_push(self):
+    def send_push(self):
         sloc = self.settings['server_location']
         ip = self.ipv4
         ipv6 = self.ipv6
@@ -119,7 +119,7 @@ Old IPv6 address was:
         self.get_current_ip()
         if (self.ipv4 != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
             try:
-                self.send_ip_push()
+                self.send_push()
             except Exception as e:
                 logger.error(
                     'Unable to send push. Exception:\n\n%s\n', e
