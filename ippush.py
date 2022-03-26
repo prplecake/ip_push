@@ -33,7 +33,9 @@ class IPPush():
             os.getcwd(), os.path.dirname(__file__)
         ))
         self.ipv4 = None
+        self.old_ip = None
         self.ipv6 = None
+        self.old_ipv6 = None
         self.settings = settings
         self.wtfismy_ipv4 = 'https://ipv4.wtfismyip.com/text'
         self.wtfismy_ipv6 = 'https://ipv6.wtfismyip.com/text'
