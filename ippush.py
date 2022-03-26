@@ -117,7 +117,7 @@ Old IPv6 address was:
     def update(self):
         self.get_old_ip()
         self.get_current_ip()
-        if (self.ipv4 != self.old_ip):  # or (self.ipv6 != self.old_ipv6):
+        if self.ipv4 != self.old_ip:  # or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_push()
             except Exception as e:
