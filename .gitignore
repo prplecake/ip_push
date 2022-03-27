@@ -5,6 +5,8 @@ log/
 settings.json
 test_settings.*
 
+!.vscode/settings.json
+
 # ignore data files that include private IP address
 *.old
 

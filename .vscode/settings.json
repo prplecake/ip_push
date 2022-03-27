@@ -1,0 +1,25 @@
+{
+    "cSpell.words": [
+        "ippush",
+        "pipenv"
+    ],
+    "cSpell.ignoreWords": [
+        "pylint",
+        "sloc",
+        "wtfismy"
+    ],
+    "python.testing.unittestArgs": [
+        "-v",
+        "-s",
+        ".",
+        "-p",
+        "test_*.py"
+    ],
+    "python.testing.pytestEnabled": false,
+    "python.testing.unittestEnabled": true,
+    "python.linting.pylintEnabled": true,
+    "python.linting.pylintArgs": [
+        "--disable", "invalid-name",
+    ],
+    "python.linting.enabled": true
+}
