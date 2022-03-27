@@ -1,5 +1,11 @@
 #!/usr/bin/env python3
 
+"""ippush.py
+
+Sends a machine's IP address using the Pushover API.
+
+"""
+
 import os
 import json
 import time
@@ -22,12 +28,14 @@ logger.debug('Logger initialized.')
 
 
 def read_settings(sf):
+    """Read settings"""
     with open(sf) as sf:
         s = json.load(sf)
     return s
 
 
 class IPPush():
+    """Get a machine's IP address and send a push if it has changed."""
     def __init__(self, settings):
         self.__location__ = os.path.realpath(os.path.join(
             os.getcwd(), os.path.dirname(__file__)
@@ -41,10 +49,14 @@ class IPPush():
         self.wtfismy_ipv6 = 'https://ipv6.wtfismyip.com/text'
 
     def get_current_ip(self):
-        # note: https://wtfismyip.com doesn't care if you automate requests to
-        # their service if it is for non-commercial use as long as you
-        # rate-limit to at most one request/min/ip address. Failure to comply
-        # may result in blockage.
+        """Get's the machine's current IP address using
+        https://wtfismyip.com
+
+        Note: https://wtfismyip.com doesn't care if you automate
+        requests to their service if it is for non-commercial use as
+        long as you rate-limit to at most one request/min/ip address.
+        Failure to comply may result in blockage.
+        """
         try:
             with urllib.request.urlopen(self.wtfismy_ipv4) as r:
                 if r.code == 200:
@@ -68,6 +80,7 @@ class IPPush():
         return self
 
     def get_old_ip(self):
+        """Get's the old IP address from the ip.old file."""
         try:
             with open(os.path.join(self.__location__, 'ip.old')) as f:
                 self.old_ip = f.readline().rstrip('\r\n')
@@ -83,6 +96,7 @@ class IPPush():
         return self
 
     def send_push(self):
+        """Sets up the message to send to the Pushover API"""
         sloc = self.settings['server_location']
         ip = self.ipv4
         ipv6 = self.ipv6
@@ -105,6 +119,7 @@ Old IPv6 address was:
         logger.info('Push sent.')
 
     def write_new_ip(self):
+        """Writes the machine's new IP address to the ip.old file."""
         output = self.ipv4 + '\n'
         with open(os.path.join(self.__location__, 'ip.old'), 'w') as f:
             f.write(output)
@@ -115,6 +130,7 @@ Old IPv6 address was:
             f.write(output2)
 
     def update(self):
+        """Update runs the class methods."""
         self.get_old_ip()
         self.get_current_ip()
         if self.ipv4 != self.old_ip:  # or (self.ipv6 != self.old_ipv6):
@@ -129,6 +145,7 @@ Old IPv6 address was:
             logger.info('IP did not change.')
 
     def send_message(self, message):
+        """Sends a push using py_pushover_simple"""
         p = pushover.Pushover()
         p.user = self.settings['keys']['user_key']
         p.token = self.settings['keys']['app_token']
