@@ -120,7 +120,7 @@ Old IPv6 address was:
         if self.ipv4 != self.old_ip:  # or (self.ipv6 != self.old_ipv6):
             try:
                 self.send_push()
-            except Exception as e:
+            except pushover.PushoverError as e:
                 logger.error(
                     'Unable to send push. Exception:\n\n%s\n', e
                 )
