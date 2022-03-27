@@ -27,9 +27,9 @@ logger = logging.getLogger(__name__)
 logger.debug('Logger initialized.')
 
 
-def read_settings(sf):
+def read_settings(settings_file):
     """Read settings"""
-    with open(sf) as sf:
+    with open(settings_file) as sf:
         s = json.load(sf)
     return s
 
