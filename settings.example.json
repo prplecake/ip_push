@@ -3,5 +3,6 @@
         "user_key":     "",
         "app_token":    ""
     },
-    "server_location":  "Server location identifier, e.g.: Home"
+    "server_location":  "Server location identifier, e.g.: Home",
+    "device": ""
 }
