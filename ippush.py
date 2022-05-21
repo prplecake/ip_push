@@ -149,6 +149,10 @@ Old IPv6 address was:
         p = pushover.Pushover()
         p.user = self.settings['keys']['user_key']
         p.token = self.settings['keys']['app_token']
+        try:
+            p.target = self.settings['device']
+        except KeyError:
+            pass
         p.send_message(message)
 
 
