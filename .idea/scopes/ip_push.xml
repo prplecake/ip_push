@@ -1,0 +1,3 @@
+<component name="DependencyValidationManager">
+  <scope name="ip_push" pattern="(file[ip_push]:*||file[ip_push]:*/)&amp;&amp;!file[ip_push]:.github//*&amp;&amp;!file[ip_push]:.idea//*&amp;&amp;!file[ip_push]:.vscode//*&amp;&amp;!file[ip_push]:htmlcov//*&amp;&amp;!file:test_settings.json-04-Apr-22.bak&amp;&amp;!file:test_settings.json-13-Feb-22.bak&amp;&amp;!file:test_settings.json-15-Aug-21.bak&amp;&amp;!file:test_settings.json-25-Mar-22.bak&amp;&amp;!file:test_settings.json-27-Mar-22.bak&amp;&amp;!file:.coverage&amp;&amp;!file[ip_push]:log//*" />
+</component>
