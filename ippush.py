@@ -34,7 +34,7 @@ def read_settings(settings_file):
     return s
 
 
-class IPPush():
+class IPPush:
     """Get a machine's IP address and send a push if it has changed."""
     def __init__(self, settings):
         self.__location__ = os.path.realpath(os.path.join(
