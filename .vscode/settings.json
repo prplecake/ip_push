@@ -19,7 +19,7 @@
     "python.testing.unittestEnabled": true,
     "python.linting.pylintEnabled": true,
     "python.linting.pylintArgs": [
-        "--disable", "invalid-name",
+        "--disable", "invalid-name"
     ],
     "python.linting.enabled": true
 }
