@@ -13,8 +13,8 @@ class ConfigTest(TestCase):
     @classmethod
     def setUpClass(cls):
         with open('settings.json', 'r') as sf:
-            SECRETS = json.load(sf)
-        cls.SECRETS = SECRETS
+            secrets = json.load(sf)
+        cls.SECRETS = secrets
 
     @mock.patch('setup.input', create=True)
     def test_create_config(self, mocked_input):
