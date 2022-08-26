@@ -71,5 +71,6 @@ class ConfigTest(TestCase):
         with self.assertRaises(SystemExit):
             create_config('test_settings.json')
 
-    def test_backup_config(self):
+    @staticmethod
+    def test_backup_config():
         backup_config('test_settings.json')
