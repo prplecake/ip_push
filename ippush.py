@@ -49,7 +49,7 @@ class IPPush():
         self.wtfismy_ipv6 = 'https://ipv6.wtfismyip.com/text'
 
     def get_current_ip(self):
-        """Get's the machine's current IP address using
+        """Gets the machine's current IP address using
         https://wtfismyip.com
 
         Note: https://wtfismyip.com doesn't care if you automate
@@ -80,7 +80,7 @@ class IPPush():
         return self
 
     def get_old_ip(self):
-        """Get's the old IP address from the ip.old file."""
+        """Gets the old IP address from the ip.old file."""
         try:
             with open(os.path.join(self.__location__, 'ip.old')) as f:
                 self.old_ip = f.readline().rstrip('\r\n')
